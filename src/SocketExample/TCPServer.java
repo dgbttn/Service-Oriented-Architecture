@@ -1,3 +1,5 @@
+package SocketExample;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -14,27 +16,26 @@ public class TCPServer {
         System.out.println("Hosting local server in port " + port);
 
         Socket connection = server.accept();
+        System.out.println("Accepted connection from port " + connection.getPort());
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream()));
 
-        ObjectOutputStream output = new ObjectOutputStream(connection.getOutputStream());
-
         while (true) {
+            // Receive input from client socket
             String input = reader.readLine().trim();
+            System.out.println("Received: " + input);
             if (input.equals("quit")) break;
 
             Student student = studentList.get(input);
-            System.out.println(student);
 
-//            output.writeObject(student);
-//            output.flush();
-
-            writer.write("This is response!");
+            // Send student information
+            writer.write((student == null) ? "No student found!" : student.toString());
             writer.newLine();
             writer.flush();
         }
 
+        // Close server socket
         reader.close();
         writer.close();
         server.close();

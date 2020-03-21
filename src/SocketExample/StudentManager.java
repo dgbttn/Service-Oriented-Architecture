@@ -1,3 +1,5 @@
+package SocketExample;
+
 import java.util.Hashtable;
 
 public class StudentManager {

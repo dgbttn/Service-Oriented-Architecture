@@ -1,3 +1,5 @@
+package SocketExample;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
@@ -20,15 +22,21 @@ public class TCPClient {
             request.newLine();
             request.flush();
 
+            // End work
             if (input.equals("quit")) break;
 
+            // Wait response
+            while (!response.ready()) {}
+
             // Receive response
-            String result = response.readLine();
-            if (result == null) break;
-            System.out.println("Response from server: " + result);
+            while (response.ready())
+                System.out.println(response.readLine());
         }
+
+        // Close socket
         request.close();
         response.close();
         client.close();
+        System.out.println("Client socket closed!");
     }
 }
