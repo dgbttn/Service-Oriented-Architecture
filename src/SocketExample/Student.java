@@ -1,7 +1,5 @@
 package SocketExample;
 
-import java.io.Serializable;
-
 public class Student {
     public String id, name, studyClass, phoneNumber, email, address;
 

@@ -8,37 +8,49 @@ import java.util.Hashtable;
 public class TCPServer {
 
     private static ServerSocket server;
+    private static Socket connection;
+    private static BufferedReader reader;
+    private static BufferedWriter writer;
     public static int port = 6789;
     private static Hashtable<String, Student> studentList = StudentManager.list;
 
-    public static void main(String[] args) throws IOException {
+    static void initServerAndWaitForConnection() throws IOException {
         server = new ServerSocket(port);
         System.out.println("Hosting local server in port " + port);
 
-        Socket connection = server.accept();
+        connection = server.accept();
         System.out.println("Accepted connection from port " + connection.getPort());
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream()));
+        reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        writer = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream()));
+    }
 
+    static void serve() throws IOException {
         while (true) {
-            // Receive input from client socket
             String input = reader.readLine().trim();
             System.out.println("Received: " + input);
-            if (input.equals("quit")) break;
-
+            if (input.equals("quit")) return;
             Student student = studentList.get(input);
-
-            // Send student information
-            writer.write((student == null) ? "No student found!" : student.toString());
-            writer.newLine();
-            writer.flush();
+            sendResponse((student == null) ? "No student found!" : student.toString());
         }
+    }
 
-        // Close server socket
+    static void sendResponse(String studenInfo) throws IOException {
+        writer.write(studenInfo);
+        writer.newLine();
+        writer.flush();
+    }
+
+    static void closeServer() throws IOException {
         reader.close();
         writer.close();
         server.close();
         System.out.println("Server closed!");
+    }
+
+    public static void main(String[] args) throws IOException {
+        initServerAndWaitForConnection();
+        serve();
+        closeServer();
     }
 }
