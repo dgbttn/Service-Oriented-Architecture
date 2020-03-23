@@ -1,4 +1,4 @@
-# Kiến trúc hướng đối tượng
+# Kiến trúc hướng dịch vụ
 
 Bài tập nhóm số 2: Thực hành với Socket
 
