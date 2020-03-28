@@ -1,6 +1,4 @@
-# Kiến trúc hướng dịch vụ
-
-Bài tập nhóm số 2: Thực hành với Socket
+# Bài tập nhóm số 3: Thực hành với RMI
 
 ## Thông tin nhóm:
     - Nguyễn Thanh Tùng - 16020063
@@ -11,22 +9,24 @@ Bài tập nhóm số 2: Thực hành với Socket
 ## Báo cáo bài thực hành:
 *Ảnh chụp màn hình thể hiện chương trình đã hoạt động*
 
-- Khởi chạy lần lượt server socket và client socket:
+- Khởi chạy lần lượt server và client:
 
 ![](screenshots/start.jpg)
+
+##### Ở client, làm lần lượt:
 
 - Nhập id `1`:
 
 ![](screenshots/1.jpg)
 
-- Nhập id `2`:
+- Nhập id `3`:
 
-![](screenshots/2.jpg)
+![](screenshots/3.jpg)
 
 - Nhập id `4` (không có trong danh sách sinh viên):
 
 ![](screenshots/notfound.jpg)
 
-- Nhập `quit` để dừng client socket và server socket:
+- Nhập `quit` để dừng chương trình:
 
 ![](screenshots/quit.jpg)

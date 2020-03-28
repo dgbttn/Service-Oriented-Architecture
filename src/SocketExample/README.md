@@ -1,6 +1,4 @@
-# Kiến trúc hướng dịch vụ
-
-Bài tập nhóm số 2: Thực hành với Socket
+# Bài tập nhóm số 2: Thực hành với Socket
 
 ## Thông tin nhóm:
     - Nguyễn Thanh Tùng - 16020063

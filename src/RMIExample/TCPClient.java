@@ -12,6 +12,7 @@ public class TCPClient {
     static void setup() throws RemoteException, NotBoundException {
         Registry registry = LocateRegistry.getRegistry("localhost", Registry.REGISTRY_PORT);
         stub = (StudentRemote) registry.lookup("Student");
+        System.out.println("Client Ready");
     }
 
     static void run() throws RemoteException {

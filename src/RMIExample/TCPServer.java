@@ -1,6 +1,5 @@
 package RMIExample;
 
-import java.net.MalformedURLException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -8,7 +7,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class TCPServer {
 
-    static void serve() throws RemoteException, MalformedURLException {
+    static void serve() throws RemoteException {
         Registry registry = LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
         StudentImpl studentImpl = new StudentImpl();
         StudentRemote stub = (StudentRemote) UnicastRemoteObject.exportObject(studentImpl, 0);
