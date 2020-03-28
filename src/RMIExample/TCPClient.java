@@ -1,7 +1,5 @@
 package RMIExample;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -11,10 +9,9 @@ import java.util.Scanner;
 public class TCPClient {
     private static StudentRemote stub;
 
-    static void setup() throws RemoteException, MalformedURLException, NotBoundException {
+    static void setup() throws RemoteException, NotBoundException {
         Registry registry = LocateRegistry.getRegistry("localhost", Registry.REGISTRY_PORT);
         stub = (StudentRemote) registry.lookup("Student");
-//        stub = (StudentRemote) Naming.lookup("rmi://localhost/StudentRemote");
     }
 
     static void run() throws RemoteException {
