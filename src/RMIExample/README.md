@@ -13,7 +13,7 @@
 
 ![](screenshots/start.jpg)
 
-##### Ở client, làm lần lượt:
+#### Ở client, làm lần lượt:
 
 - Nhập id `1`:
 
