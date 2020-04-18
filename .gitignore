@@ -1,3 +1,7 @@
 .idea
 out/
-Service-Oriented-Architecture.iml
+
+# Maven
+target
+src/test
+src/main/resources
