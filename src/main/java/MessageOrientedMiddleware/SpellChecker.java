@@ -5,7 +5,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class SpellChecker {
 
-    static String correct(String text) throws UnirestException {
+    public static String correct(String text) throws UnirestException {
         HttpResponse<JsonNode> response = Unirest.get("https://montanaflynn-spellcheck.p.rapidapi.com/check/")
                 .queryString("text", text)
                 .header("x-rapidapi-host", "montanaflynn-spellcheck.p.rapidapi.com")
@@ -16,5 +16,6 @@ public class SpellChecker {
 
     public static void main(String[] args) throws UnirestException {
         System.out.println(correct("This sentnce has some probblems."));
+        System.out.println(correct("I love you"));
     }
 }
