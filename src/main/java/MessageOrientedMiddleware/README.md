@@ -1,4 +1,4 @@
-# Bài tập nhóm số 4: Thực hành với Message Oriented Middleware
+# Bài tập nhóm số 4: Thực hành với MOM (Message Oriented Middleware)
 
 ## Thông tin nhóm:
     - Nguyễn Thanh Tùng - 16020063
@@ -7,6 +7,3 @@
 
 ## Yêu cầu:
 - JDK >= 11
-
-
-
