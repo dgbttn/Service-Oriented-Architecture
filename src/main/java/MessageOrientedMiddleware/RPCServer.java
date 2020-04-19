@@ -20,7 +20,7 @@ public class RPCServer {
             channel.queuePurge(PRC_QUEUE_NAME);
             channel.basicQos(1);
 
-            System.out.println(" [x] Awaiting RPC requests");
+            System.out.println("Awaiting RPC requests ...");
 
             Object monitor = new Object();
             DeliverCallback deliverCallback = (consumerTag, delivery) -> {
